@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задание 3 -->
+    <style>
+        div {
+            padding: 15px 25px;
+            height: 100px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+
+    <script>
+
+        function changeColor(div) {
+            var color = Math.floor(Math.random() * 16777216).toString(16);
+            myColor = '#000000'.slice(0, -color.length) + color;
+            div.style = `background:${myColor}`;
+        }
+
+        ammountOfDivs = prompt("Введите количество блоков");
+        ammountOfPics = prompt("Введите количество картинок");
+
+
+        for (i = 0; i < ammountOfDivs; i++) {
+            div = document.createElement("div");
+            document.body.append(div);
+            changeColor(div);
+
+            for (j = 1; j <= ammountOfPics; j++) {
+                img = document.createElement("img");
+                img.src = `images/${j}.jpg`;
+                div.append(img);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
