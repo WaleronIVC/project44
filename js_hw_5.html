@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #myim {
+            width: 800px;
+            /* height: 500px; */
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 0 auto;
+        }
+        #myim img {
+            height: 150px;
+            cursor: pointer;
+        }
+        .galleryItem {
+            text-align: center;
+        }
+
+        #bigPic {
+            width: 800px;
+            text-align: center;
+            margin: 40px auto;
+        }
+
+        #bigPic img {
+            width: 800px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="myim"></div>
+    <div id="bigPic"></div>
+    <script>
+
+        let s = '';
+
+        // массив из обьектов с одинаковыми именами
+        
+        let gallery = [
+            {name: 'Красный костел', src: 'images_hw/red.jpg', link: 'https://msj.by/katolicheskie-xramy/krasnyj-kostel-v-minske/', description: 'В храме святого Симеона и святой Елены находится полномасштабная копия Туринской Плащаницы.'},
+            {name: 'Троицкое предместье', src: 'images_hw/troi.jpg', link: 'https://www.belarus.by/ru/travel/belarus-life/trinity-suburb', description: 'Троицкое предместье — исторический район города Минска, расположенный в северо-восточной части исторического центра на левом берегу реки Свислочь.'},
+            {name: 'Мирский замок', src: 'images_hw/mir.jpg', link: 'https://mirzamak.by/', description: 'Построенный в начале XVI в. магнатом Ю. И. Ильиничем замок стал первым частнособственническим замком на землях Белоруссии'}
+        ]
+
+        for (let i = 0 ; i < gallery.length ; i++){
+            
+            src = gallery[i].src;
+            name = gallery[i].name;
+            link = gallery[i].link;
+            s += `<div class="galleryItem"><img onclick="setBig(${i})" src="${src}"><br><a href="${link}" target="_blank">${name}</a></div>`;
+        }
+
+        myim.innerHTML = s;
+
+        function setBig(n) {
+
+            bigPic.innerHTML = `<img src="${gallery[n].src}" onclick="bigPic.innerHTML=''"><p>${gallery[n].description}</p>`;
+        }
+    </script>
+
+</body>
+
+</html>
